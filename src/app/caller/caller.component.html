@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-2">
+    <h6>History</h6>
+  </div>
+  <div class="col-10">
+    <h3>Caller</h3>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend" dropdown>
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" dropdownToggle>{{request.method}}</button>
+        <div class="dropdown-menu" *dropdownMenu role="menu">
+          <a class="dropdown-item" *ngFor="let m of methods" (click)="setMethod(m)">{{m}}</a>
+        </div>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="request.url">
+      <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary" (click)="save()">Save</button>
+          <button type="button" class="btn bg-apidoc" (click)="send()">Send</button>
+      </div>
+    </div>
+
+    <tabset type="pills" #tabs>
+      <tab heading="Body">
+        <textarea [(ngModel)]="request.body" class="form-control"></textarea>
+
+        <div separator></div>
+
+
+      </tab>
+      <tab heading="Headers">Headers</tab>
+      <tab heading="Response" *ngIf="request.response !== null || request.error !== null">
+        <div *ngIf="request.error">
+          <h5>An error has occurred.</h5>
+
+          <tabset type="pills" id="errorTabs" #errorTabs>
+            <tab heading="Content">
+              <div [innerHtml]="request.error.error.text"></div>
+            </tab>
+            <tab heading="Pretty">
+              <ngx-json-viewer *ngIf="request.error" [json]="request.error"></ngx-json-viewer>
+            </tab>
+            <tab heading="Raw">
+              {{getStringifiedError()}}
+            </tab>
+
+          </tabset>
+
+        </div>
+
+        <ngx-json-viewer *ngIf="request.response" [json]="request.response"></ngx-json-viewer>
+      </tab>
+    </tabset>
+  </div>
+</div>
