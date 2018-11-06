@@ -1,0 +1,68 @@
+<h2>Entities</h2>
+<div separator></div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table endpoint-table">
+      <thead>
+      <tr>
+        <th scope="col" class="id-column">Identifier</th>
+        <th scope="col">Properties</th>
+        <th scope="col" class="op-column">Operations</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let entity of entityService.entities; let id = index" [attr.data-index]="i">
+        <td>
+          Name
+          <input type="text" class="form-control" [(ngModel)]="entity.__apidoc_identifier">
+          Description
+          <input type="text" class="form-control" [(ngModel)]="entity.__apidoc_description">
+        </td>
+        <td style="overflow-x: auto; max-width: 500px">
+          <tabset type="pills">
+            <tab heading="Preview">
+              <entity-viewer [entity]="entity"></entity-viewer>
+            </tab>
+            <tab heading="JSON">
+              <ngx-json-viewer [json]="entity.__apidoc_properties" [expanded]="false"></ngx-json-viewer>
+            </tab>
+            <tab heading="Edit">
+              <entity-editor [entity]="entity"></entity-editor>
+            </tab>
+          </tabset>
+        </td>
+        <td style="white-space: nowrap">
+          <button class="btn btn-sm btn-secondary" (click)="generate(dummyEntity, entity.__apidoc_identifier)">Generate dummy</button>&nbsp;
+          <button class="btn btn-sm btn-danger" (click)="deleteEndpoint(id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="add-item">
+    <button class="btn btn-secondary" (click)="addEntity()">Add Entity</button>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+<ng-template class="modal-lg" #dummyEntity>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Dummy "{{dummyEntityName}}"</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <tabset type="pills" #tabs>
+      <tab heading="Raw Data">
+        <textarea [(ngModel)]="rawDummyEntity" class="form-control dummy-textarea"></textarea>
+      </tab>
+      <tab heading="Pretty">
+        <ngx-json-viewer [json]="x"></ngx-json-viewer>
+      </tab>
+    </tabset>
+
+    <button (click)="generate(null, dummyEntityName)" class="btn btn-secondary">Generate Another</button>
+  </div>
+</ng-template>

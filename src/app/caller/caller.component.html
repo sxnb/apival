@@ -1,6 +1,21 @@
 <div class="row">
   <div class="col-2">
-    <h6>History</h6>
+    <h5>Entities</h5>
+    <div *ngFor="let entity of entities" class="entity-item" (click)="addEntity(entity)">
+      <!--<button class="btn btn-sm btn-secondary" (click)="useEndpoint({url: 'abc'})">+</button>-->
+      {{entity}}
+    </div>
+
+    <div separator></div>
+
+    <h5>Endpoints</h5>
+    <div *ngFor="let endpoint of endpoints" class="endpoint-item" (click)="useEndpoint(endpoint)">
+      <span class="badge badge-secondary" *ngIf="endpoint.url">{{endpoint.method}}</span>
+      <span class="endpoint-name"
+            tooltip="{{endpoint.url}}"
+            placement="right">{{endpoint.id ? endpoint.id : endpoint.url}}</span>
+    </div>
+
   </div>
   <div class="col-10">
     <h3>Caller</h3>
@@ -23,7 +38,6 @@
         <textarea [(ngModel)]="request.body" class="form-control"></textarea>
 
         <div separator></div>
-
 
       </tab>
       <tab heading="Headers">Headers</tab>

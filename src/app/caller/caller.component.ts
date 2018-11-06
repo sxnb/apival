@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TabsetComponent} from 'ngx-bootstrap';
 import {RequestService} from '../services/request.service';
+import {EntityService} from "../services/entity.service";
+import {EndpointService} from "../services/endpoint.service";
 
 @Component({
     selector: 'app-caller',
@@ -9,6 +11,9 @@ import {RequestService} from '../services/request.service';
 })
 export class CallerComponent implements OnInit {
     @ViewChild('tabs') staticTabs: TabsetComponent;
+
+    public entities = [];
+    public endpoints = [];
 
     public request = {
         method: 'GET',
@@ -21,10 +26,24 @@ export class CallerComponent implements OnInit {
 
     public methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'COPY', 'HEAD', 'OPTIONS'];
 
-    constructor(public client: RequestService) {
+    constructor(public client: RequestService, public entityService: EntityService, public endpointService: EndpointService) {
     }
 
     ngOnInit() {
+        this.entities = this.entityService.getEntityNames();
+        this.endpoints = this.endpointService.getEndpoints();
+        console.log(this.entityService.generateEntity('person'));
+    }
+
+    public addEntity(name) {
+        console.log(this.entityService.generateEntity(name));
+    }
+
+    public useEndpoint(endpoint) {
+        this.request.url = endpoint.url;
+        if (endpoint.method) {
+            this.request.method = endpoint.method;
+        }
     }
 
     public setMethod(method: string) {

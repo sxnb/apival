@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 import { AppComponent } from './app.component';
@@ -14,10 +17,21 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RequestHeaderComponent } from './request-header/request-header.component';
 
 import { RequestService } from './services/request.service';
+import { EndpointsComponent } from './endpoints/endpoints.component';
+import { EntitiesComponent } from './entities/entities.component';
+import { TestsComponent } from './tests/tests.component';
+import { EntityEditorComponent } from './entity-editor/entity-editor.component';
+import { EntityViewerComponent } from './entity-viewer/entity-viewer.component';
+import { PropertiesViewerComponent } from './properties-viewer/properties-viewer.component';
+import { PropertiesEditorComponent } from './properties-editor/properties-editor.component';
+import { KeyvalueUnsortedPipe } from './keyvalue-unsorted.pipe';
 
 /* Route definitions */
 const appRoutes: Routes = [
     { path: 'home', component: CallerComponent },
+    { path: 'endpoints', component: EndpointsComponent },
+    { path: 'entities', component: EntitiesComponent },
+    { path: 'tests', component: TestsComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
@@ -27,7 +41,15 @@ const appRoutes: Routes = [
     AppComponent,
     CallerComponent,
     PageNotFoundComponent,
-    RequestHeaderComponent
+    RequestHeaderComponent,
+    EndpointsComponent,
+    EntitiesComponent,
+    TestsComponent,
+    EntityEditorComponent,
+    EntityViewerComponent,
+    PropertiesViewerComponent,
+    PropertiesEditorComponent,
+    KeyvalueUnsortedPipe
   ],
   imports: [
     BrowserModule,
@@ -36,6 +58,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { useHash: true }),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    ModalModule.forRoot(),
+    CollapseModule.forRoot(),
+    TooltipModule.forRoot(),
     NgxJsonViewerModule
   ],
   providers: [

@@ -7,5 +7,14 @@ router-outlet {
 }
 
 .col-12 {
-  padding: 1em;
+  padding: 75px 1em 1em 1em;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+#exportedTextArea {
+  min-height: 500px;
+  min-width: 500px;
 }

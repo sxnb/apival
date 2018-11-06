@@ -1,25 +1,60 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-apidoc">
-  <a class="navbar-brand" href="#">ApiDoc</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Caller</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Collections</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Export</a>
-      </li>
-    </ul>
-  </div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-apidoc">
+    <a class="navbar-brand" href="#">ApiDoc</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active">Caller</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/entities" routerLinkActive="active">Entities</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/endpoints" routerLinkActive="active">Endpoints</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/tests" routerLinkActive="active">Tests</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link">Import</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-danger" (click)="openExportModal(dataExport)">Export</button>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <div class="row">
-  <div class="col-12">
-    <router-outlet></router-outlet>
-  </div>
+    <div class="col-12">
+        <router-outlet></router-outlet>
+    </div>
 </div>
+
+<ng-template class="modal-lg" #dataExport>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Your Data</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Copy the JSON below and save it to a file.
+
+        <div separator></div>
+
+        <tabset type="pills" #tabs>
+            <tab heading="Raw Data">
+                <textarea [(ngModel)]="rawData" id="exportedTextArea" class="form-control"></textarea>
+            </tab>
+            <tab heading="Pretty">
+                <ngx-json-viewer [json]="exportedData"></ngx-json-viewer>
+            </tab>
+        </tabset>
+    </div>
+</ng-template>

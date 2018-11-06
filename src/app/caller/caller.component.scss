@@ -4,3 +4,33 @@ textarea {
 
 #sendButtons {
 }
+
+.entity-item {
+  border-bottom: solid 1px #eeeeee;
+  padding: 5px 0 5px 0;
+  cursor: pointer;
+}
+
+.entity-item:hover {
+  background-color: aliceblue;
+}
+
+.endpoint-item {
+  width: 100%;
+  white-space: nowrap;
+  font-size: 0.8em;
+  text-overflow: ellipsis;
+  border-bottom: solid 1px #eeeeee;
+  padding: 5px 0 5px 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.endpoint-item:hover {
+  background-color: aliceblue;
+}
+
+.endpoint-name {
+  margin-left: 5px;
+  text-overflow: ellipsis;
+}
