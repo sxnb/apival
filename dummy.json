@@ -1,0 +1,84 @@
+{
+    "entities": [
+        {
+            "__apidoc_identifier": "person",
+            "__apidoc_version": 1,
+            "__apidoc_properties": {
+                "id": {
+                    "type": "string",
+                    "length": 32
+                },
+                "name": {
+                    "type": "string",
+                    "length": 96
+                },
+                "age": {
+                    "type": "integer",
+                    "min": 0,
+                    "max": 100
+                },
+                "phone": {
+                    "type": "regex",
+                    "exp": "\\(?([0-9]{3})\\)?([ .-]?)([0-9]{3})\\2([0-9]{4})"
+                },
+                "score": {
+                    "type": "float",
+                    "min": 0,
+                    "max": 10
+                },
+                "address": {
+                    "type": "object",
+                    "properties": {
+                        "street": {
+                            "type": "string",
+                            "length": 32
+                        },
+                        "number": {
+                            "type": "integer",
+                            "min": 0,
+                            "max": 500
+                        }
+                    }
+                },
+                "additionalInfo": {
+                    "type": "entity",
+                    "entityName": "additionalInfo"
+                }
+            },
+            "__apidoc_description": "abc def"
+        },
+        {
+            "__apidoc_identifier": "additionalInfo",
+            "__apidoc_version": 1,
+            "__apidoc_properties": {
+                "property1": {
+                    "type": "string",
+                    "length": 96
+                },
+                "property2": {
+                    "type": "integer",
+                    "min": 0,
+                    "max": 10
+                }
+            }
+        }
+    ],
+    "endpoints": [
+        {
+            "id": "personCreate",
+            "url": "http://192.168.33.10:9200/api/person/create",
+            "method": "PUT"
+        },
+        {
+            "id": "personDelete",
+            "url": "http://192.168.33.10:9200/api/person/delete",
+            "method": "DELETE"
+        },
+        {
+            "id": "",
+            "url": "http://192.168.33.10:9200/api/person",
+            "method": "POST"
+        }
+    ],
+    "tests": []
+}
