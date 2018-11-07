@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad231309-6418-49c7-ab4b-57d128727e01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/data.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tests/tests.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/tests.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/tests.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/tests.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tests/tests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/tests.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/validation/validation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/validation/validation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/validation/validation.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/validation/validation.component.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,27 +86,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="6455" />
-          <entry key="scss" value="1884" />
-          <entry key="ts" value="6841" />
+          <entry key="html" value="6489" />
+          <entry key="scss" value="1955" />
+          <entry key="ts" value="6944" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="6455" />
-          <entry key="SCSS" value="1884" />
-          <entry key="TypeScript" value="6841" />
+          <entry key="HTML" value="6489" />
+          <entry key="SCSS" value="1955" />
+          <entry key="TypeScript" value="6944" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/tests/tests.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+            <state relative-caret-position="136">
+              <caret line="8" column="69" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="69" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="e#195#201#0" expanded="true" />
@@ -164,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/tests/tests.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="787">
-              <caret line="59" column="42" lean-forward="true" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
+            <state relative-caret-position="549">
+              <caret line="58" column="56" lean-forward="true" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -185,17 +181,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/validation/validation.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="63" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="63" />
+            <state relative-caret-position="323">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/validation/validation.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            <state relative-caret-position="340">
+              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -272,13 +268,13 @@
         <option value="$PROJECT_DIR$/app/services/data.service.ts" />
         <option value="$PROJECT_DIR$/app/request/request.component.ts" />
         <option value="$PROJECT_DIR$/app/services/test.service.ts" />
-        <option value="$PROJECT_DIR$/app/validation/validation.component.scss" />
-        <option value="$PROJECT_DIR$/app/validation/validation.component.html" />
         <option value="$PROJECT_DIR$/app/validation/validation.component.ts" />
         <option value="$PROJECT_DIR$/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/app/tests/tests.component.ts" />
         <option value="$PROJECT_DIR$/app/tests/tests.component.scss" />
         <option value="$PROJECT_DIR$/app/tests/tests.component.html" />
+        <option value="$PROJECT_DIR$/app/tests/tests.component.ts" />
+        <option value="$PROJECT_DIR$/app/validation/validation.component.html" />
+        <option value="$PROJECT_DIR$/app/validation/validation.component.scss" />
       </list>
     </option>
   </component>
@@ -383,12 +379,12 @@
       <updated>1541420728223</updated>
       <workItem from="1541420729332" duration="9844000" />
       <workItem from="1541491808635" duration="20735000" />
-      <workItem from="1541580247437" duration="16783000" />
+      <workItem from="1541580247437" duration="17115000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47362000" />
+    <option name="totallyTimeSpent" value="47694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -700,27 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/test.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/validation/validation.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/validation/validation.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/validation/validation.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -734,16 +709,6 @@
           <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/tests.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="59" column="42" lean-forward="true" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -766,12 +731,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/tests.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        <state relative-caret-position="136">
+          <caret line="8" column="69" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="69" />
           <folding>
             <element signature="n#style#0;n#div#0;n#tab#0;n#tabset#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="e#195#201#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/test.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tests/tests.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="58" column="56" lean-forward="true" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/validation/validation.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/validation/validation.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
         </state>
       </provider>
     </entry>

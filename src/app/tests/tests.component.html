@@ -5,7 +5,9 @@
         <div *ngFor="let test of tests" class="test-item" (click)="editTest(test)">
             {{test.name}}
         </div>
-
+        <div class="buttons-container">
+            <button class="btn btn-sm btn-secondary" (click)="addTest()">Add test</button>
+        </div>
     </div>
     <div class="col-10">
         <div class="no-test" *ngIf="!editedTest.name">

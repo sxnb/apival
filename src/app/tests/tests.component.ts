@@ -27,6 +27,14 @@ export class TestsComponent implements OnInit {
         this.tests = this.testService.getTests();
     }
 
+    public addTest() {
+        this.tests.push({
+            name: 'New Test',
+            description: '',
+            steps: []
+        });
+    }
+
     public editTest(test) {
         this.editedTest = test;
     }
@@ -48,11 +56,11 @@ export class TestsComponent implements OnInit {
     }
 
     public addRequest() {
-        this.editedTest.steps.push({ 'type': 'request' });
+        this.editedTest.steps.push({ type: 'request' });
     }
 
     public addValidation() {
-        this.editedTest.steps.push({ 'type': 'validation' });
+        this.editedTest.steps.push({ type: 'validation', rules: [] });
     }
 
     public cloneComponent(id) {
