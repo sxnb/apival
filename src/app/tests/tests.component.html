@@ -1,3 +1,63 @@
-<p>
-  tests works!
-</p>
+<h3>Tests</h3>
+<div class="row">
+    <div class="col-2">
+        <h5>Tests</h5>
+        <div *ngFor="let test of tests" class="test-item" (click)="editTest(test)">
+            {{test.name}}
+        </div>
+
+    </div>
+    <div class="col-10">
+        <div class="no-test" *ngIf="!editedTest.name">
+            <h5>No test selected! Create a new one or select an existing one from the column on the left.</h5>
+        </div>
+
+        <tabset type="pills" #tabs *ngIf="editedTest.name">
+            <tab heading="Visual Editor">
+
+                <div style="float: right">
+                    <button class="btn btn-danger">Delete test</button>
+                </div>
+
+                <div class="test-title">{{editedTest.name}}</div>
+                <div class="test-description">{{editedTest.description}}</div>
+
+                <div [sortablejs]="editedTest.steps">
+                    <div *ngFor="let step of editedTest.steps; let isLast=last; let id=index">
+                        <div class="row test-step">
+                            <div class="col-10">
+                                <div *ngIf="step.type === 'request'">
+                                    <request [data]="step.data"></request>
+                                </div>
+                                <div *ngIf="step.type === 'validation'">
+                                    <validation [rules]="step.rules"></validation>
+                                </div>
+                            </div>
+                            <div class="col-2 step-buttons">
+                                <button class="btn btn-sm btn-secondary" (click)="cloneComponent(id)">Clone</button><br />
+                                <button class="btn btn-sm btn-danger" (click)="deleteComponent(id)">Delete</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                <div *ngIf="!isLast" class="arrow-container">
+                                    <img src="assets/arrow-down.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons-container">
+                    <button class="btn btn-secondary" (click)="addRequest()">Add another request</button>&nbsp;
+                    <button class="btn btn-secondary" (click)="addValidation()">Add response validation</button>
+                </div>
+
+            </tab>
+            <tab heading="Raw JSON">
+    <textarea class="form-control rawjson" [ngModel]="getRawEditedTest()" (change)="updateEditedTest($event)">
+    </textarea>
+            </tab>
+        </tabset>
+    </div>
+</div>

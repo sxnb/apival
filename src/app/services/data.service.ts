@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EntityService } from './entity.service';
 import {EndpointService} from "./endpoint.service";
+import {TestService} from "./test.service";
 // import * as stringifyObject from 'stringify-object';
 
 @Injectable({
@@ -8,7 +9,7 @@ import {EndpointService} from "./endpoint.service";
 })
 export class DataService {
 
-  constructor(public entityService: EntityService, public endpointService: EndpointService) { }
+  constructor(public entityService: EntityService, public endpointService: EndpointService, public testService: TestService) { }
 
   public import() {
 
@@ -23,6 +24,8 @@ export class DataService {
 
       data.entities = this.entityService.dumpData();
       data.endpoints = this.endpointService.getEndpoints();
+      data.tests = this.testService.getTests();
+
 
       return data;
 

@@ -10,6 +10,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { SortablejsModule } from 'angular-sortablejs';
 
 import { AppComponent } from './app.component';
 import { CallerComponent } from './caller/caller.component';
@@ -25,6 +26,8 @@ import { EntityViewerComponent } from './entity-viewer/entity-viewer.component';
 import { PropertiesViewerComponent } from './properties-viewer/properties-viewer.component';
 import { PropertiesEditorComponent } from './properties-editor/properties-editor.component';
 import { KeyvalueUnsortedPipe } from './keyvalue-unsorted.pipe';
+import { RequestComponent } from './request/request.component';
+import { ValidationComponent } from './validation/validation.component';
 
 /* Route definitions */
 const appRoutes: Routes = [
@@ -49,7 +52,9 @@ const appRoutes: Routes = [
     EntityViewerComponent,
     PropertiesViewerComponent,
     PropertiesEditorComponent,
-    KeyvalueUnsortedPipe
+    KeyvalueUnsortedPipe,
+    RequestComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     CollapseModule.forRoot(),
     TooltipModule.forRoot(),
+    SortablejsModule.forRoot({ animation: 150 }),
     NgxJsonViewerModule
   ],
   providers: [
