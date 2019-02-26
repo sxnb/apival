@@ -1,0 +1,23 @@
+{
+  "name": "apival-cli",
+  "version": "1.0.0",
+  "description": "ApiVal command line client.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxnb/apival.git"
+  },
+  "author": "Sorin Banica",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sxnb/apival/issues"
+  },
+  "homepage": "https://github.com/sxnb/apival#readme",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "command-line-usage": "^5.0.5"
+  }
+}
