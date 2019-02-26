@@ -36,7 +36,9 @@ export class CallerComponent implements OnInit {
     }
 
     public addEntity(name) {
-        console.log(this.entityService.generateEntity(name));
+        const e = this.entityService.generateEntity(name);
+        //console.log(this.entityService.generateEntity(name));
+        this.request.body = JSON.stringify(e, null, 4);
     }
 
     public useEndpoint(endpoint) {
@@ -48,6 +50,14 @@ export class CallerComponent implements OnInit {
 
     public setMethod(method: string) {
         this.request.method = method;
+    }
+
+    public addHeader() {
+        this.request.headers.push({name: '', value: ''});
+    }
+
+    public removeHeader(i: number) {
+        this.request.headers.splice(i, 1);
     }
 
     public send() {

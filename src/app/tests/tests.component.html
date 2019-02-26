@@ -5,6 +5,7 @@
         <div *ngFor="let test of tests" class="test-item" (click)="editTest(test)">
             {{test.name}}
         </div>
+        <div separator></div>
         <div class="buttons-container">
             <button class="btn btn-sm btn-secondary" (click)="addTest()">Add test</button>
         </div>
@@ -36,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="col-2 step-buttons">
-                                <button class="btn btn-sm btn-secondary" (click)="cloneComponent(id)">Clone</button><br />
+                                <button class="btn btn-sm btn-secondary" (click)="cloneComponent(id)">Clone</button>
                                 <button class="btn btn-sm btn-danger" (click)="deleteComponent(id)">Delete</button>
                             </div>
                         </div>

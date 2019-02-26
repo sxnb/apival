@@ -84,6 +84,10 @@
 
 .step-buttons {
   padding-top: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .step-buttons button {

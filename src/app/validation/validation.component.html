@@ -1,12 +1,12 @@
 <div class="validation-component">
   <h5>Validation</h5>
   <div class="row" *ngFor="let rule of rules; let id=index">
-    <div class="col-2 col-rule">
+    <div class="col-3 col-rule">
       <select class="form-control" [(ngModel)]="rule.type">
         <option *ngFor="let type of ruleTypes" value="{{type}}">{{type}}</option>
       </select>
     </div>
-    <div class="col-6 col-rule">
+    <div class="col-5 col-rule">
       <span *ngIf="rule.type === 'status'">must be</span>
       <span *ngIf="rule.type === 'type'">must be (JSON only)</span>
       <div *ngIf="rule.type === 'property'">

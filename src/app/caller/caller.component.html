@@ -35,12 +35,35 @@
 
     <tabset type="pills" #tabs>
       <tab heading="Body">
-        <textarea [(ngModel)]="request.body" class="form-control"></textarea>
+        <textarea [(ngModel)]="request.body" class="form-control" *ngIf="request.method !== 'GET'"></textarea>
+        <span *ngIf="request.method === 'GET'">GET requests do not support body.</span>
 
         <div separator></div>
 
       </tab>
-      <tab heading="Headers">Headers</tab>
+      <tab heading="Headers">
+        <div class="row" *ngIf="request.headers.length">
+          <div class="col col-5">
+            <strong>Name</strong>
+          </div>
+          <div class="col col-5">
+            <strong>Value</strong>
+          </div>
+        </div>
+        <div class="row header-row" *ngFor="let header of request.headers, let i = index">
+          <div class="col col-10">
+            <app-request-header [header]="header"></app-request-header>
+          </div>
+          <div class="col col-2">
+            <button class="btn btn-sm btn-danger" (click)="removeHeader(i)">Remove</button>
+          </div>
+        </div>
+
+        <div separator></div>
+
+        <button class="btn bg-apidoc" (click)="addHeader()">Add Header</button>
+
+      </tab>
       <tab heading="Response" *ngIf="request.response !== null || request.error !== null">
         <div *ngIf="request.error">
           <h5>An error has occurred.</h5>
