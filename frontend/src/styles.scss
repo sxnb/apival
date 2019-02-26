@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+$bgColor: #0a3d62;
+
+.bg-apidoc {
+  background-color: $bgColor;
+  color: #ffffff;
+}
+
+.nav-link.active {
+  background-color: $bgColor !important;
+}
+
+.app-link {
+  cursor: pointer;
+}
+
+.tab-pane {
+  margin: 1em 0 1em 0;
+  padding: 1em;
+  background: #eeeeee;
+  border-radius: 5px;
+}
+
+div [separator] {
+  width: 100%;
+  display: block;
+  height: 15px;
+}
+
+
+.modal-dialog {
+  width: 800px !important;
+  max-width: 800px !important;
+}

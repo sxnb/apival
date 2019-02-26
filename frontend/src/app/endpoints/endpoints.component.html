@@ -1,0 +1,38 @@
+<h2>Endpoints</h2>
+<div separator></div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table endpoint-table">
+      <thead>
+      <tr>
+        <th scope="col" class="id-column">Identifier</th>
+        <th scope="col">Method</th>
+        <th scope="col">URL</th>
+        <th scope="col" class="op-column">Operations</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let endpoint of endpointService.endpoints; let id = index" [attr.data-index]="i">
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="endpoint.id">
+        </td>
+        <td>
+          <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="endpoint.method">
+            <option *ngFor="let method of methods" value="{{method}}">{{method}}</option>
+          </select>
+        </td>
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="endpoint.url">
+        </td>
+        <td><button class="btn btn-danger" (click)="deleteEndpoint(id)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <sub>Identifier is required for automated tests.</sub>
+  </div>
+  <div class="add-item">
+    <button class="btn btn-secondary" (click)="addEndpoint()">Add Endpoint</button>
+  </div>
+  <div class="col-1"></div>
+</div>

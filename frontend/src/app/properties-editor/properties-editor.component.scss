@@ -1,0 +1,28 @@
+.property {
+  background: #dfe6e9;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 10px 5px;
+  border: solid 1px #ffffff;
+}
+
+.property:hover {
+  background: #b2bec3;
+}
+
+.property-name {
+  font-weight: bold;
+}
+
+.property-type {
+  font-style: italic;
+}
+
+.property-info {
+  font-size: 0.8em;
+}
+
+.form-control {
+  display: inline-block;
+  margin: 4px 0 4px 0;
+}
