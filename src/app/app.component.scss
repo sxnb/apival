@@ -15,6 +15,11 @@ router-outlet {
 }
 
 #exportedTextArea {
-  min-height: 500px;
+  min-height: 350px;
+  min-width: 500px;
+}
+
+#exportedTextArea {
+  min-height: 350px;
   min-width: 500px;
 }

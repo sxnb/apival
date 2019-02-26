@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {RequestService} from "../services/request.service";
-import {EntityService} from "../services/entity.service";
-import {EndpointService} from "../services/endpoint.service";
-import {TestService} from "../services/test.service";
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { RequestService } from "../services/request.service";
+import { EntityService } from "../services/entity.service";
+import { EndpointService } from "../services/endpoint.service";
+import { TestService } from "../services/test.service";
+const uuidv4 = require('uuid/v4');
 
 @Component({
   selector: 'app-tests',
@@ -14,11 +16,16 @@ export class TestsComponent implements OnInit {
     public endpoints = [];
     public tests = [];
 
+    public renaming: boolean = false;
+
+    modalRef: BsModalRef;
+
     public editedTest: any = {
 
     };
 
-    constructor(public client: RequestService, public entityService: EntityService, public endpointService: EndpointService, public testService: TestService) {
+    constructor(private modalService: BsModalService, public client: RequestService,
+                public entityService: EntityService, public endpointService: EndpointService, public testService: TestService) {
     }
 
     ngOnInit() {
@@ -29,6 +36,7 @@ export class TestsComponent implements OnInit {
 
     public addTest() {
         this.tests.push({
+            __apidoc_identifier: uuidv4(),
             name: 'New Test',
             description: '',
             steps: []
@@ -36,11 +44,16 @@ export class TestsComponent implements OnInit {
     }
 
     public editTest(test) {
+        this.renaming = false;
         this.editedTest = test;
     }
 
     public getRawEditedTest() {
         return JSON.stringify(this.editedTest, null, 4);
+    }
+
+    toggleRenaming() {
+      this.renaming = !this.renaming;
     }
 
     public updateEditedTest(ev: any) {
@@ -56,7 +69,7 @@ export class TestsComponent implements OnInit {
     }
 
     public addRequest() {
-        this.editedTest.steps.push({ type: 'request' });
+        this.editedTest.steps.push({ type: 'request', data: {} });
     }
 
     public addValidation() {
@@ -72,4 +85,22 @@ export class TestsComponent implements OnInit {
         this.editedTest.steps.splice(id, 1);
     }
 
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+    }
+
+    confirmDeleteTest(): void {
+        this.testService.setTests(this.tests.filter((t: any) => {
+          return t.__apidoc_identifier !== this.editedTest.__apidoc_identifier;
+        }));
+
+        this.editedTest = {};
+        this.tests = this.testService.getTests();
+        this.renaming = false;
+        this.modalRef.hide();
+    }
+
+    cancelDeleteTest(): void {
+        this.modalRef.hide();
+    }
 }

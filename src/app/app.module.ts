@@ -12,6 +12,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { SortablejsModule } from 'angular-sortablejs';
 import { NgxTypeaheadModule } from 'ngx-typeahead';
+import { MomentModule } from 'ngx-moment';
 
 import { AppComponent } from './app.component';
 import { CallerComponent } from './caller/caller.component';
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     SortablejsModule.forRoot({ animation: 150 }),
     NgxJsonViewerModule,
-    NgxTypeaheadModule
+    NgxTypeaheadModule,
+    MomentModule
   ],
   providers: [
       RequestService

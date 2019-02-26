@@ -8,6 +8,7 @@ export class EndpointService {
   public endpoints = [];
 
   constructor() {
+/*
     this.endpoints = [
         {
             id: 'personCreate',
@@ -20,14 +21,25 @@ export class EndpointService {
             method: 'DELETE'
         },
         {
+            id: 'personGet',
+            url: 'http://192.168.33.10:9200/api/person',
+            method: 'GET'
+        },
+        {
             id: '',
             url: 'http://192.168.33.10:9200/api/person',
             method: 'POST'
         }
     ]
+*/
   }
 
   public getEndpoints() {
       return this.endpoints;
   }
+
+  public setEndpoints(endpoints: any) {
+      this.endpoints = endpoints;
+  }
+
 }

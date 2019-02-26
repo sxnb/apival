@@ -8,15 +8,19 @@ export class TestService {
     public tests = [];
 
     constructor() {
+/*
         let e1 = {
+            __apidoc_identifier: '24479525-aada-479f-bde0-010c06c09888'
             name: 'Authentication Test #1',
             description: 'Authenticates a user',
             steps: [
                 {
-                    type: 'request'
+                    type: 'request',
+                    data: {}
                 },
                 {
-                    type: 'request'
+                    type: 'request',
+                    data: {}
                 },
                 {
                     type: 'validation',
@@ -40,10 +44,15 @@ export class TestService {
         };
 
         this.tests.push(e1);
+*/
     }
 
     public getTests() {
         return this.tests;
+    }
+
+    public setTests(tests: any) {
+        this.tests = tests;
     }
 
 }

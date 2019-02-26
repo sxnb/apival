@@ -11,6 +11,10 @@ $bgColor: #0a3d62;
   background-color: $bgColor !important;
 }
 
+.app-link {
+  cursor: pointer;
+}
+
 .tab-pane {
   margin: 1em 0 1em 0;
   padding: 1em;

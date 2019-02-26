@@ -9,6 +9,7 @@ export class EntityService {
     public entities = [];
 
     constructor() {
+/*
         let e1 = {
             __apidoc_identifier: 'person',
             __apidoc_version: 1,
@@ -73,6 +74,7 @@ export class EntityService {
         };
         this.entities.push(e1);
         this.entities.push(e2);
+*/
     }
 
     public getEntities() {
@@ -127,5 +129,9 @@ export class EntityService {
 
     public dumpData() {
         return this.entities;
+    }
+
+    public setEntities(entities: any) {
+        this.entities = entities;
     }
 }

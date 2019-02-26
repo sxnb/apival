@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-2">
         <h5>Tests</h5>
-        <div *ngFor="let test of tests" class="test-item" (click)="editTest(test)">
-            {{test.name}}
+        <div *ngFor="let test of testService.getTests()" class="test-item" (click)="editTest(test)">
+            {{ test.name ? test.name : 'untitled' }}
         </div>
         <div separator></div>
         <div class="buttons-container">
@@ -11,22 +11,36 @@
         </div>
     </div>
     <div class="col-10">
-        <div class="no-test" *ngIf="!editedTest.name">
+        <div class="no-test" *ngIf="!editedTest.__apidoc_identifier">
             <h5>No test selected! Create a new one or select an existing one from the column on the left.</h5>
         </div>
 
-        <tabset type="pills" #tabs *ngIf="editedTest.name">
+        <tabset type="pills" #tabs *ngIf="editedTest.__apidoc_identifier">
             <tab heading="Visual Editor">
-
-                <div style="float: right">
-                    <button class="btn btn-danger">Delete test</button>
+                <div class="row">
+                  <div class="col col-8">
+                    <div *ngIf="!renaming">
+                      <div class="test-title">{{editedTest.name}}</div>
+                      <div class="test-description">{{editedTest.description}}</div>
+                    </div>
+                    <div *ngIf="renaming">
+                      <div><input type="text" class="form-control" [(ngModel)]="editedTest.name"></div>
+                      <div separator></div>
+                      <div><input type="text" class="form-control" [(ngModel)]="editedTest.description"></div>
+                    </div>
+                  </div>
+                  <div class="col col-4" style="text-align: right">
+                    <button *ngIf="!renaming" class="btn btn-secondary" (click)="toggleRenaming()">Rename test</button>
+                    <button *ngIf="renaming" class="btn btn-secondary" (click)="toggleRenaming()">Done</button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="openModal(deleteTest)">Delete test</button>
+                  </div>
                 </div>
-
-                <div class="test-title">{{editedTest.name}}</div>
-                <div class="test-description">{{editedTest.description}}</div>
+                <div separator></div>
 
                 <div [sortablejs]="editedTest.steps">
                     <div *ngFor="let step of editedTest.steps; let isLast=last; let id=index">
+                        <h5>Step {{id + 1}}</h5>
                         <div class="row test-step">
                             <div class="col-10">
                                 <div *ngIf="step.type === 'request'">
@@ -68,3 +82,11 @@
         </tabset>
     </div>
 </div>
+
+<ng-template #deleteTest>
+  <div class="modal-body text-center">
+    <p>Are you sure you want to delete this test?</p>
+    <button type="button" class="btn btn-danger" (click)="confirmDeleteTest()" >Yes</button>&nbsp;
+    <button type="button" class="btn btn-secondary" (click)="cancelDeleteTest()" >No</button>
+  </div>
+</ng-template>

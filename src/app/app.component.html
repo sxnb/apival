@@ -19,16 +19,47 @@
                 <a class="nav-link" routerLink="/tests" routerLinkActive="active">Tests</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Generate Docs</a>
+                <a class="nav-link" (click)="openModal(about)">About</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link">Import</a>
+                <span class="nav-link" style="cursor: default">Last autosave: {{data.prettyLastAutosave()}}</span>
+            </li>
+            <li class="nav-item">
+              <div class="btn-group" dropdown>
+                <button id="button-basic" dropdownToggle type="button" class="btn btn-danger dropdown-toggle"
+                        aria-controls="dropdown-basic">
+                  Data <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem" class="app-link">
+                    <a class="dropdown-item" (click)="restoreFromStorage()">Restore from Storage</a>
+                  </li>
+                  <li role="menuitem" class="app-link">
+                    <a class="dropdown-item" (click)="openImportModal(dataImport)">Import from JSON</a>
+                  </li>
+                  <li class="divider dropdown-divider"></li>
+                  <li role="menuitem" class="app-link">
+                    <a class="dropdown-item">
+                      <button class="btn btn-block btn-danger" (click)="openExportModal(dataExport)">Export to JSON</button>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+<!--
+            <li class="nav-item">
+                <a class="nav-link" (click)="restoreFromStorage()">Restore</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="openImportModal(dataImport)">Import</a>
             </li>
             <li class="nav-item">
                 <button class="btn btn-danger" (click)="openExportModal(dataExport)">Export</button>
             </li>
+-->
         </ul>
     </div>
 </nav>
@@ -47,7 +78,10 @@
         </button>
     </div>
     <div class="modal-body">
-        Copy the JSON below and save it to a file.
+      <a title="Download JSON" [href]="downloadJsonHref" download="download.json">Click here</a> to download the exported JSON file.
+      <div separator></div>
+
+      Or copy the JSON below and save it to a file.
 
         <div separator></div>
 
@@ -60,4 +94,33 @@
             </tab>
         </tabset>
     </div>
+</ng-template>
+
+<ng-template class="modal-lg" #dataImport>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Your Data</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Paste your JSON in the textbox below.
+
+    <div separator></div>
+
+    <textarea [(ngModel)]="importData" id="importedTextArea" class="form-control"></textarea>
+ </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="import()">Import</button>
+  </div>
+</ng-template>
+
+<ng-template class="modal-lg" #about>
+  <div class="modal-body">
+    <h2>About ApiDoc</h2>
+    ApiDoc is an open source software, released under GPL v3 License, and created by <a href="http://www.colorcode.me" target="_blank">Colorcode</a>.
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+  </div>
 </ng-template>
