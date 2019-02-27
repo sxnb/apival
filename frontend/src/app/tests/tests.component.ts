@@ -4,7 +4,7 @@ import { RequestService } from "../services/request.service";
 import { EntityService } from "../services/entity.service";
 import { EndpointService } from "../services/endpoint.service";
 import { TestService } from "../services/test.service";
-const uuidv4 = require('uuid/v4');
+import * as uuidv4 from 'uuid/v4';
 
 @Component({
   selector: 'app-tests',
