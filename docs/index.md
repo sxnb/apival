@@ -1,6 +1,6 @@
 ### Initial Apival page
 
-Apival is an open source API testing tool developed by [Colorcode](https://www.colorcode.me).
+Apival is an open source API testing tool developed by [Colorcode](http://www.colorcode.me).
 
 ### Contact
 

@@ -1,4 +1,4 @@
-#ApiVal
+# ApiVal
 
 ## Client
 
@@ -10,8 +10,6 @@ To install the editor, clone the repository, then go to the **cli** folder, and 
 npm install apival-cli --global
 ```
 
-You need to have installed Node 6+.
-
 ## Usage
 
 ```shell
@@ -20,6 +18,6 @@ You need to have installed Node 6+.
 
 ## Visual Editor
 
-The visual editor is available at [apival.colorcode.me/editor](https://apival.colorcode.me).
+The visual editor is available at [apival.colorcode.me/editor](http://apival.colorcode.me/editor).
 
 If you want to build the visual editor on your machine, you have to do it using angular-cli. You can find more information about it [here](https://cli.angular.io/).
