@@ -18,9 +18,21 @@ class Logger {
         console.log('\x1b[31m%s\x1b[0m', s);
     }
 
+    /**
+     * Fatal log (error + exit)
+     * @param {*} s 
+     */
     fatal(s) {
         this.e(s);
         process.exit(1);
+    }
+
+    /**
+     * Info log
+     * @param {*} s 
+     */
+    i(s) {
+        console.log('\x1b[36m%s\x1b[0m', s);
     }
 
     /**

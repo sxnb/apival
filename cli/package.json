@@ -18,6 +18,8 @@
   "homepage": "https://github.com/sxnb/apival#readme",
   "dependencies": {
     "command-line-args": "^5.0.2",
-    "command-line-usage": "^5.0.5"
+    "command-line-usage": "^5.0.5",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
   }
 }
