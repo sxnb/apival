@@ -99,7 +99,8 @@
                     "type": "request",
                     "data": {
                         "endpointId": "planorioHeartbeat",
-                        "headers": []
+                        "headers": [],
+                        "bodyType": "additionalInfo"
                     }
                 },
                 {
@@ -121,6 +122,33 @@
                             "propertyPath": "tagline"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "__apidoc_identifier": "785402d9-fd8d-4c75-a114-cd059b20dcf2",
+            "name": "testtest",
+            "description": "",
+            "steps": [
+                {
+                    "type": "request",
+                    "data": {
+                        "endpointId": "planorioHeartbeat",
+                        "headers": [
+                            {
+                                "name": "",
+                                "value": ""
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "request",
+                    "data": {
+                        "endpointId": "planorioHeartbeat",
+                        "bodyType": "__apidoc_custom_body",
+                        "bodyCustom": "{\"abc\": \"_:1:tagline:_\"}"
+                    }
                 }
             ]
         }

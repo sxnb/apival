@@ -24,7 +24,7 @@ export class RequestComponent implements OnInit {
 
         this.bodyOptions = JSON.parse(JSON.stringify(entityService.getEntities()));
         this.bodyOptions.push({
-          __apidoc_identifier: 'Custom Body';
+          __apidoc_identifier: '__apidoc_custom_body'
         });
 
         this.endpointOptions = endpointService.getEndpoints().filter((e: any) => { return e.id; });

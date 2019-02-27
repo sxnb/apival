@@ -12,6 +12,8 @@ export class DataService {
   public lastTimestamp: string = '';
   public oldState: string = '';
 
+  public interval: any = null;
+
   constructor(public entityService: EntityService, public endpointService: EndpointService, public testService: TestService) {
       this.lastTimestamp = localStorage.getItem('__apival_timestamp');
 

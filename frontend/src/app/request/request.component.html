@@ -59,10 +59,12 @@
     </div>
     <div class="col-9 col-rule">
       <select class="form-control" [(ngModel)]="request.bodyType">
-        <option *ngFor="let entity of bodyOptions" value="{{entity.__apidoc_identifier}}">{{entity.__apidoc_identifier}}</option>
+        <option *ngFor="let entity of bodyOptions" value="{{entity.__apidoc_identifier}}">
+          {{entity.__apidoc_identifier !== '__apidoc_custom_body' ? entity.__apidoc_identifier : 'Custom Body'}}
+        </option>
       </select>
       <div separator></div>
-      <textarea [(ngModel)]="request.bodyCustom" *ngIf="request.bodyType === 'Custom Body'" class="form-control"></textarea>
+      <textarea [(ngModel)]="request.bodyCustom" *ngIf="request.bodyType === '__apidoc_custom_body'" class="form-control"></textarea>
       <sub *ngIf="request.bodyType === 'Custom Body'">to use a property value from the previous response, use _:STEP_NUMBER:PROPERTY_PATH:_</sub>
     </div>
   </div>

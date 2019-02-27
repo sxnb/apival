@@ -1,6 +1,10 @@
 const commandLineArgs = require('command-line-args');
 
+/**
+ * 
+ */
 class CommandLineParser {
+
     constructor() {
         const optionDefinitions = [
             { name: 'input', alias: 'i', type: String },
@@ -11,6 +15,8 @@ class CommandLineParser {
 
         this.options = commandLineArgs(optionDefinitions);
     }
+
+    //-------------------------------------------------------------------------
 
     getParams() {
         return this.options;

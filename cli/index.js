@@ -1,5 +1,5 @@
-const CommandLineParser = require('./CommandLineParser');
-const Logger = require('./Logger');
+const CommandLineParser = require('./utils/CommandLineParser');
+const Logger = require('./utils/Logger');
 const Client = require('./Client');
 
 const clp = new CommandLineParser();
@@ -9,7 +9,7 @@ let client = new Client(options);
 
 if (options['help']) {
     client.showHelp();
-    return;
+    process.exit(0);
 }
 
 if (!options['input']) {
@@ -21,4 +21,10 @@ if (options['test-name']) {
     return;
 }
 
-client.runTests();
+client.runTests().then((results) => {
+    if (results.fail.length) {
+        process.exit(1);
+    }
+
+    process.exit(0);
+});
