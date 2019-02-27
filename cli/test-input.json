@@ -117,7 +117,7 @@
                         },
                         {
                             "type": "property",
-                            "expectedValue": "Planorio firsts",
+                            "expectedValue": "Planorio first",
                             "propertyPath": "tagline"
                         }
                     ]

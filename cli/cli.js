@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const CommandLineParser = require('./utils/CommandLineParser');
 const Logger = require('./utils/Logger');
 const Client = require('./Client');
@@ -7,7 +9,8 @@ const options = clp.getParams();
 
 let client = new Client(options);
 
-if (options['help']) {
+console.log(options);
+if (options['help'] || Object.keys(options).length === 0) {
     client.showHelp();
     process.exit(0);
 }

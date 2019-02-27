@@ -12,6 +12,9 @@
   },
   "author": "Sorin Banica",
   "license": "ISC",
+  "bin": {
+    "apival": "./cli.js"
+  },
   "bugs": {
     "url": "https://github.com/sxnb/apival/issues"
   },

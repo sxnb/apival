@@ -12,47 +12,13 @@ const ValidationStep = require('./validation/ValidationStep');
 class Client {
 
     constructor(options) {
-        const sections = [
-            {
-                header: 'ApiVal CLI',
-                content: 'ApiVal CLI allows you to run ApiVal automatic tests.'
-            },
-            {
-                header: 'Options',
-                optionList: [
-                    {
-                        name: 'input',
-                        alias: 'i',
-                        typeLabel: '{underline file}',
-                        description: 'The JSON file to process.'
-                    },
-                    {
-                        name: 'test-name',
-                        alias: 't',
-                        description: 'Run a specific test only.'
-                    },
-                    {
-                        name: 'output',
-                        alias: 'o',
-                        typeLabel: '{underline file}',
-                        description: 'The name of the output file.'
-                    },
-                    {
-                        name: 'silent',
-                        alias: 's',
-                        description: 'Run the tool in silent mode, i.e. no output.'
-                    },
-                    {
-                        name: 'help',
-                        alias: 'h',
-                        description: 'Print this usage guide.'
-                    }
-                ]
-            }
-        ];
-        
         this.options = options;
-        this.usage = commandLineUsage(sections);
+        this._initHelp();
+
+        if (Object.keys(options).length === 0) {
+            this.showHelp();
+            process.exit(0);
+        }
 
         if (options.help) {
             return;
@@ -187,6 +153,48 @@ class Client {
         Logger.s('\nResult: SUCCESS');
     }
 
+    _initHelp() {
+        const sections = [
+            {
+                header: 'ApiVal CLI',
+                content: 'ApiVal CLI allows you to run ApiVal automatic tests.'
+            },
+            {
+                header: 'Options',
+                optionList: [
+                    {
+                        name: 'input',
+                        alias: 'i',
+                        typeLabel: '{underline file}',
+                        description: 'The JSON file to process.'
+                    },
+                    {
+                        name: 'test-name',
+                        alias: 't',
+                        description: 'Run a specific test only.'
+                    },
+                    {
+                        name: 'output',
+                        alias: 'o',
+                        typeLabel: '{underline file}',
+                        description: 'The name of the output file.'
+                    },
+                    {
+                        name: 'silent',
+                        alias: 's',
+                        description: 'Run the tool in silent mode, i.e. no output.'
+                    },
+                    {
+                        name: 'help',
+                        alias: 'h',
+                        description: 'Print this usage guide.'
+                    }
+                ]
+            }
+        ];
+        
+        this.usage = commandLineUsage(sections);
+    }
 }
 
 module.exports = Client;
