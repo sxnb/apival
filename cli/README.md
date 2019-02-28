@@ -10,11 +10,15 @@ To install the editor, clone the repository, then go to the **cli** folder, and 
 npm install apival-cli --global
 ```
 
-## Usage
+### Usage
 
 ```shell
 ./apival-cli --input file.json [--help] [--silent]
 ```
+
+### Documentation
+
+TODO
 
 ## Visual Editor
 

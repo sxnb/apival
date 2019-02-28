@@ -8,7 +8,7 @@ class CommandLineParser {
     constructor() {
         const optionDefinitions = [
             { name: 'input', alias: 'i', type: String },
-            { name: 'output', alias: 'o', type: String },
+            { name: 'test-name', alias: 't', type: String },
             { name: 'silent', alias: 's', type: Boolean },
             { name: 'help', alias: 'h', type: Boolean }
         ];

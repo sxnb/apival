@@ -22,12 +22,16 @@ class ValidationStep extends BaseStep {
                     if (!Checker.statusCheck(rule.expectedValue, this.dataToValidate.statusCode)) {
                         Logger.e(`- Status check failed - expected ${rule.expectedValue}, got ${this.dataToValidate.statusCode}`);
                         this.result.success = false;
+                    } else {
+                        Logger.s(`- Status check succeeded`); 
                     }
                     break;
                 case 'type':
                     if (!Checker.typeCheck(this.dataToValidate.output, rule.expectedValue)) {
                         Logger.e(`- Type check failed - expected ${rule.expectedValue}`);
                         this.result.success = false;
+                    } else {
+                        Logger.s(`- Type check succeeded`); 
                     }
                     break;
                 case 'property':
@@ -35,6 +39,8 @@ class ValidationStep extends BaseStep {
                         Logger.e(`- Property "${rule.propertyPath}" check failed - expected "` + 
                         `${rule.expectedValue}", got "${_.get(this.dataToValidate.output, rule.propertyPath)}"`);
                         this.result.success = false;
+                    } else {
+                        Logger.s(`- Property "${rule.propertyPath}" check succeeded`); 
                     }
                     break;
             }

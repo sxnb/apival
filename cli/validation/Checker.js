@@ -21,15 +21,19 @@ class Checker {
     //-------------------------------------------------------------------------
 
     typeCheck(text, type) {
+        let result = true;
         switch(type) {
             case 'json':
-            if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').
-                replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
-                replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-                return true;
-            }
-            
-            return false;
+                try {
+                    let temp = JSON.stringify(text);
+                    if (temp === null) {
+                        result = false;
+                    }
+                } catch (e) {
+                    result = false;
+                }
+                
+                return result;
             default:
                 return false;
         }

@@ -1,0 +1,55 @@
+{
+    "entities": [],
+    "endpoints": [
+        {
+            "method": "GET",
+            "url": "http://ip-api.com/json/24.48.0.1",
+            "id": "LocationGet"
+        }
+    ],
+    "tests": [
+        {
+            "__apidoc_identifier": "e59d1e42-6568-428a-ae4b-102b2d1d034c",
+            "name": "Geolocation Test",
+            "description": "Demo test - retrieves a location using ip-api.com and checks if it is correct.",
+            "steps": [
+                {
+                    "type": "request",
+                    "data": {
+                        "endpointId": "LocationGet"
+                    }
+                },
+                {
+                    "type": "validation",
+                    "rules": [
+                        {
+                            "type": "status",
+                            "expectedValue": "200",
+                            "propertyPath": null
+                        },
+                        {
+                            "type": "type",
+                            "expectedValue": "json",
+                            "propertyPath": null
+                        },
+                        {
+                            "type": "property",
+                            "expectedValue": "success",
+                            "propertyPath": "status"
+                        },
+                        {
+                            "type": "property",
+                            "expectedValue": "Canada",
+                            "propertyPath": "country"
+                        },
+                        {
+                            "type": "property",
+                            "expectedValue": "QC",
+                            "propertyPath": "region"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

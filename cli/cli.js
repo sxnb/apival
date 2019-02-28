@@ -20,8 +20,13 @@ if (!options['input']) {
 }
 
 if (options['test-name']) {
-    client.runTestByName(options['test-name']);
-    return;
+    client.runTestByName(options['test-name']).then((results) => {
+        if (results.fail.length) {
+            process.exit(1);
+        }
+    
+        process.exit(0);
+    });
 }
 
 client.runTests().then((results) => {

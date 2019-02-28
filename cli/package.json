@@ -1,11 +1,18 @@
 {
   "name": "apival-cli",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "ApiVal command line client.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "/cli.js",
+    "/Client.js",
+    "README.md",
+    "/utils",
+    "/validation"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sxnb/apival.git"

@@ -65,15 +65,24 @@ class Client {
 
     //-------------------------------------------------------------------------
 
-    runTestByName() {
-        Logger.l('=== ' + this.content.tests.length + ' tests ===');
+    async runTestByName(testName) {
+        Logger.l('=== Running only "' + testName + '" ===');
+
+        let test = this.content.tests.find((test) => { return test.name === testName; });
+        if (!test) {
+            Logger.fatal('Cannot find test "' + testName +'", exiting.');
+        }
+
+        await this._runTest(test); 
+        this._printResults();
+
+        return this.results;
     }
 
     //-------------------------------------------------------------------------
 
     async _runTest(test) {
         Logger.l('Running test << ' + test.name + ' >>');
-        // console.log(JSON.stringify(test, null, 4));
 
         let steps = [];
         let testName = '';
@@ -173,12 +182,12 @@ class Client {
                         alias: 't',
                         description: 'Run a specific test only.'
                     },
-                    {
-                        name: 'output',
-                        alias: 'o',
-                        typeLabel: '{underline file}',
-                        description: 'The name of the output file.'
-                    },
+                    // {
+                    //     name: 'output',
+                    //     alias: 'o',
+                    //     typeLabel: '{underline file}',
+                    //     description: 'The name of the output file.'
+                    // },
                     {
                         name: 'silent',
                         alias: 's',
